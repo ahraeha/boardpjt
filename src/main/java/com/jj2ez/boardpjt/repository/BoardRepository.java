@@ -1,2 +1,12 @@
-package com.jj2ez.boardpjt.repository;public class BoardRepository {
+package com.jj2ez.boardpjt.repository;
+
+import com.jj2ez.boardpjt.domain.Board;
+import com.jj2ez.boardpjt.repository.search.BoardSearch;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+public interface BoardRepository extends JpaRepository<Board, Long>, BoardSearch {
+
+  @Query(value = "select now()", nativeQuery = true)
+  String getTime();
 }
