@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/basic.html}">
+
+<head>
+  <title>Board Read</title>
+</head>
+
+<div layout:fragment="content">
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Board Read
+        </div>
+        <div class="card-body">
+          <!--
+            <div class="input-group mb-3">
+              <span class="input-group-text">Bno</span>
+              <input type="text" class="form-control" th:value="${dto.bno}" readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Title</span>
+              <input type="text" class="form-control" th:value="${dto.title}" readonly>
+            </div>
+           -->
+          <!--
+          <div class="input-group mb-3">
+            <span class="input-group-text">Region</span>
+            <input type="text" name="region" class="form-control" placeholder="Region">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text">number of recruits</span>
+            <input type="number" name="numberOfRecruits" class="form-control" placeholder="NumberOfRecruits">
+          </div>
+          -->
+            <!-- 모집 마감일 -->
+            <!--
+            <div class="input-group mb-3">
+              <span class="input-group-text">Recruitment Close</span>
+              <input type="date" name="recruitmentClose" class="form-control" placeholder="RecruitmentClose">
+            </div> -->
+            <!--
+            <div class="input-group mb-3">
+              <span class="input-group-text">Content</span>
+              <textarea class="form-control col-sm-5" rows="5" readonly>[[${dto.content}]]</textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Writer</span>
+              <input type="text" class="form-control" th:value="${dto.writer}" readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">CreatedAt</span>
+              <input type="text" class="form-control" th:value="${#temporals.format(dto.createdAt, 'yyyy-MM-dd HH:mm:ss')}" readonly>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">UpdatedAt</span>
+              <input type="text" class="form-control" th:value="${#temporals.format(dto.updatedAt, 'yyyy-MM-dd HH:mm:ss')}" readonly>
+            </div>
+
+            <div class="my-4">
+              <div class="float-end">
+                <button type="button" class="btn-primary">List</button>
+                <button type="button" class="btn-secondary">Updated</button>
+              </div>
+
+          </div>
+              -->
+
+        </div> <!-- end card body-->
+
+      </div> <!-- end card -->
+
+    </div> <!-- end col-->
+
+  </div> <!-- end low-->
+
+
+</div> <!--end layout -->
+
+
+<script layout:fragment="script" th:inline="javascript">
+
+</script>

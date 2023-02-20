@@ -46,7 +46,7 @@ public class BoardServiceTests {
   public void testList() {
 
     PageRequestDTO pageRequestDTO = PageRequestDTO.builder()
-        .type("tcw")
+        .type("tcb")
         .keyword("1")
         .page(1)
         .size(10)

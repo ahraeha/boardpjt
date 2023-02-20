@@ -5,16 +5,17 @@ import com.jj2ez.boardpjt.dto.BoardDTO;
 import com.jj2ez.boardpjt.dto.PageRequestDTO;
 import com.jj2ez.boardpjt.dto.PageResponseDTO;
 import com.jj2ez.boardpjt.repository.BoardRepository;
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import javax.transaction.Transactional;
 
 @Service
 @Log4j2
@@ -29,7 +30,8 @@ public class BoardServiceImpl implements BoardService {
   public Long register(BoardDTO boardDTO) {
     Board board = modelMapper.map(boardDTO, Board.class);
 
-    return boardRepository.save(board).getBno();
+    Long bno = boardRepository.save(board).getBno();
+    return bno;
   }
 
   @Override
@@ -39,13 +41,15 @@ public class BoardServiceImpl implements BoardService {
 
     Board board = result.orElseThrow();
 
-    return modelMapper.map(board, BoardDTO.class);
+    BoardDTO boardDTO = modelMapper.map(board, BoardDTO.class);
+
+    return boardDTO;
   }
 
   @Override
   public void modify(BoardDTO boardDTO) {
 
-    Optional<Board> result = boardRepository.findById(boardDTO.getBno());
+    Optional<Board> result = boardRepository.findById((long) boardDTO.getBno());
 
     Board board = result.orElseThrow();
 

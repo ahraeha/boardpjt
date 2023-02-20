@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/basic.html}">
+
+<head>
+  <title>Board Register</title>
+</head>
+
+<div layout:fragment="content">
+
+  <div class="row mt-3">
+    <div class="col">
+      <div class="card">
+        <div class="card-header">
+          Board Register
+        </div>
+        <div class="card-body">
+          <form action="/board/register" method="post">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Title</span>
+              <input type="text" name="title" class="form-control" placeholder="Title">
+            </div>
+            <!--
+            <div class="input-group mb-3">
+              <span class="input-group-text">Region</span>
+              <input type="text" name="region" class="form-control" placeholder="Region">
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">number of recruits</span>
+              <input type="number" name="numberOfRecruits" class="form-control" placeholder="NumberOfRecruits">
+            </div> -->
+            <!-- 모집 마감일 -->
+            <!--
+            <div class="input-group mb-3">
+              <span class="input-group-text">Recruitment Close</span>
+              <input type="date" name="recruitmentClose" class="form-control" placeholder="RecruitmentClose">
+            </div> -->
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Content</span>
+              <textarea class="form-control col-sm-5" rows="5" name="content"></textarea>
+            </div>
+
+            <div class="input-group mb-3">
+              <span class="input-group-text">Writer</span>
+              <input type="text" name="boardId" class="form-control" placeholder="Writer">
+            </div>
+
+            <div class="my-4">
+              <div class="float-end">
+                <button type="submit" class="btn-primary">Submit</button>
+                <button type="reset" class="btn-secondary">Reset</button>
+              </div>
+
+            </div>
+          </form>
+
+        </div> <!-- end card body-->
+
+      </div> <!-- end card -->
+
+    </div> <!-- end col-->
+
+  </div> <!-- end low-->
+
+
+</div> <!--end layout -->
+
+
+<script layout:fragment="script" th:inline="javascript">
+
+  const errors = [[${errors}]]
+  console.log(errors)
+
+  let errorMsg = ''
+
+  if(errors) {
+    for (let i = 0; i < errors.length; i++) {
+      errorMsg += `${errors[i].field}은(는) ${errors[i].code} \n`
+    }
+    alert(errorMsg)
+  }
+
+
+</script>

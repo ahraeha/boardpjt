@@ -21,7 +21,7 @@ public class Board extends BaseEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY) //데이터 베이스에 위임
-  private Long bno; //board_id?
+  private Long bno;
 
   @Column(length = 500, nullable = false)
   private String title; //제목
@@ -30,7 +30,7 @@ public class Board extends BaseEntity {
   private String content; //내용
 
   @Column(length = 50, nullable = false)
-  private String boardId; // 작성자? name
+  private String boardId;
 
   public void change(String title, String content) {
     this.title = title;

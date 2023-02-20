@@ -17,6 +17,24 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
   }
 
   @Override
+  public Page<Board> search1(Pageable pageable) {
+
+    QBoard board = QBoard.board; // Q도메인 객체
+
+    JPQLQuery<Board> query = from(board); // select ~ from board
+
+    query.where(board.title.contains("1")); // where title like
+    //Paging 추가
+    this.getQuerydsl().applyPagination(pageable, query);
+
+    List<Board> list = query.fetch();
+
+    long count = query.fetchCount();
+
+    return null;
+  }
+
+  @Override
   public Page<Board> searchAll(String[] types, String keyword, Pageable pageable) {
 
     QBoard board = QBoard.board; // Q 도메인 객체
@@ -53,23 +71,5 @@ public class BoardSearchImpl extends QuerydslRepositorySupport implements BoardS
     long count = query.fetchCount();
 
     return new PageImpl<>(list, pageable, count);
-  }
-
-  @Override
-  public Page<Board> search1(Pageable pageable) {
-
-    QBoard board = QBoard.board; // Q도메인 객체
-
-    JPQLQuery<Board> query = from(board); // select ~ from board
-
-    query.where(board.title.contains("1")); // where title like
-    //Paging 추가
-    this.getQuerydsl().applyPagination(pageable, query);
-
-    List<Board> list = query.fetch();
-
-    long count = query.fetchCount();
-
-    return null;
   }
 }
